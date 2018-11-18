@@ -1,28 +1,12 @@
 #include<stdio.h>
 #include <ctype.h>
 
+void push(char);
+char pop();
+int priority(char);
+
 char stack[20];
 int top = -1;
-
-void push(char x) {
-        stack[++top] = x;
-}
-
-char pop() {
-        if(top == -1)
-                return -1;
-        else
-                return stack[top--];
-}
-
-int priority(char x) {
-        if(x == '(')
-                return 0;
-        if(x == '+' || x == '-')
-                return 1;
-        if(x == '*' || x == '/')
-                return 2;
-}
 
 int main() {
         char expression[20];
@@ -50,4 +34,24 @@ int main() {
                 printf("%c",pop());
         printf("\n");
         return 0;
+}
+
+void push(char data) {
+        stack[++top] = data;
+}
+
+char pop() {
+        if(top == -1)
+                return -1;
+        else
+                return stack[top--];
+}
+
+int priority(char op) {
+        if(op == '(')
+                return 0;
+        if(op == '+' || op == '-')
+                return 1;
+        if(op == '*' || op == '/')
+                return 2;
 }
