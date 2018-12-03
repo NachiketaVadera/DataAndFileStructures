@@ -4,7 +4,7 @@
 #include <string.h>
 
 void populateInput();
-void insert(char *); 
+void insert(char *);
 void postOrder();
 void inOrder();
 void preOrder();
@@ -35,21 +35,21 @@ void insert(char * data) {
 	struct node * temp = (struct node *) malloc(sizeof(struct node));
 	struct node * current;
 	struct node * parent;
-	
+
 	temp->data = data;
 	temp->leftChild = NULL;
 	temp->rightChild = NULL;
-	
+
 	if(root == NULL) {
 		root = temp;
 	}
 	else {
 		current = root;
 		parent = NULL;
-		
-		while(1) {
+
+		while(true) {
 			parent = current;
-			
+
 			if(strcmp(data, parent->data) < 0) {
 				current = current->leftChild;
 				if(current == NULL) {
@@ -65,49 +65,47 @@ void insert(char * data) {
 				}
 			}
 		}
-	}		
+	}
 }
 
-void postOrder(struct node * node) { 
-	if (node == NULL) 
-		return; 
-		
-	// left
-	postOrder(node->leftChild); 
+void postOrder(struct node * node) {
+	if (node == NULL)
+		return;
 
-	// right 
-	postOrder(node->rightChild); 
-
-	// node 
-	printf("%s ", node->data); 
-}
-
-void preOrder(struct node * node) {
-	if (node == NULL) 
-		return; 
-		
-	// node 
-	printf("%s ", node->data); 	
-	
 	// left
 	postOrder(node->leftChild);
 
 	// right
-	postOrder(node->rightChild); 
+	postOrder(node->rightChild);
+
+	// node
+	printf("%s ", node->data);
+}
+
+void preOrder(struct node * node) {
+	if (node == NULL)
+		return;
+
+	// node
+	printf("%s ", node->data);
+
+	// left
+	postOrder(node->leftChild);
+
+	// right
+	postOrder(node->rightChild);
 }
 
 void inOrder(struct node * node) {
-	if (node == NULL) 
-		return; 
-		
+	if (node == NULL)
+		return;
+
 	// left
-	postOrder(node->leftChild); 
+	postOrder(node->leftChild);
 
-	// node 
-	printf("%s ", node->data); 
+	// node
+	printf("%s ", node->data);
 
-	// right 
-	postOrder(node->rightChild); 
-} 
-
-
+	// right
+	postOrder(node->rightChild);
+}
