@@ -223,13 +223,13 @@ int main() {
         Head = Rear = NULL;
         int val, n;
         while (true) {
-                printf("1: Insert at fornt:\n");
-                printf("2: Insert at rear:\n");
-                printf("3: Insert in order:\n");
-                printf("4: Insert value after specific value:\n");
-                printf("5: Delete from front:\n");
-                printf("6: Delete from end:\n");
-                printf("7: Delete a specific value:\n");
+                printf("1: Insert at fornt\n");
+                printf("2: Insert at rear\n");
+                printf("3: Insert in order\n");
+                printf("4: Insert value after specific value\n");
+                printf("5: Delete from front\n");
+                printf("6: Delete from end\n");
+                printf("7: Delete a specific value\n");
                 printf("8: Display\n");
                 printf("9: Exit\n");
                 printf("Enter your choice:\n");
